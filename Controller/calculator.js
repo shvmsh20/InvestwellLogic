@@ -10,7 +10,7 @@ const calculate = async (req, res) => {
 
         if (
             Number.isNaN(monthlyInvestment) ||
-            monthlyInvestment < validate.MONTHLYINVESTMENTMIn ||
+            monthlyInvestment < validate.MONTHLYINVESTMENTMIN ||
             monthlyInvestment > validate.MONTHLYINVESTMENTMAX
         )
             throw new Error("Invalid data entered");
