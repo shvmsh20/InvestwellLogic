@@ -1,40 +1,40 @@
 const service = require("../Services/calculator");
-const consts = require("../Constants/index");
-
+const validate = require("../Constants/index");
+console.log(validate);
 const calculate = async (req, res) => {
     try {
         const monthlyInvestment = parseInt(req.query.monthlyInvestment);
         const investmentPeriod = parseInt(req.query.investmentPeriod);
-        const rateOfReturn = parseInt(req.query.rateOfReturn);
+        const rateOfReturn = parseFloat(req.query.rateOfReturn);
         const delay = parseInt(req.query.delay);
 
         if (
             Number.isNaN(monthlyInvestment) ||
-            monthlyInvestment < consts.monthlyInvestmentMin ||
-            monthlyInvestment > consts.monthlyInvestmentMax
+            monthlyInvestment < validate.MONTHLYINVESTMENTMIn ||
+            monthlyInvestment > validate.MONTHLYINVESTMENTMAX
         )
             throw new Error("Invalid data entered");
 
         if (
             Number.isNaN(investmentPeriod) ||
-            investmentPeriod < consts.investmentPeriodMin ||
-            investmentPeriod > consts.investmentPeriodMax
+            investmentPeriod < validate.INVESTMENTPERIODMIN ||
+            investmentPeriod > validate.INVESTMENTPERIODMAX
         ) 
             throw new Error("Invalid data entered");
         
 
         if (
             Number.isNaN(rateOfReturn) ||
-            rateOfReturn < consts.rateOfReturnMin ||
-            rateOfReturn > consts.rateOfReturnMax
+            rateOfReturn < validate.RATEOFRETURNMIN ||
+            rateOfReturn > validate.RATEOFRETURNMAX
         ) 
             throw new Error("Invalid data entered");
         
 
         if (
             Number.isNaN(delay) ||
-            delay < consts.delayMin ||
-            delay > consts.delayMax
+            delay < validate.DELAYMIN ||
+            delay > validate.DELAYMAX
         ) 
             throw new Error("Invalid data entered");
         

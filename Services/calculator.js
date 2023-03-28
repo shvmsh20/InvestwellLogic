@@ -1,4 +1,8 @@
   function findAmount(monthlyInvestment, investmentPeriod, rateOfReturn, delay){
+    // monthlyInvestment = parseInt(monthlyInvestment);
+    // investmentPeriod = parseInt(investmentPeriod);
+    // rateOfReturn = parseInt(rateOfReturn);
+    // delay = parseInt(delay);
     const months = delay ? (investmentPeriod)*12 - delay : (investmentPeriod)*12;
     const rate = (rateOfReturn - 0)/12;
     let sipCumulation = 0;

@@ -1,19 +1,12 @@
-const monthlyInvestmentMin = 500;
-const monthlyInvestmentMax = 100000;
-const investmentPeriodMin = 1;
-const investmentPeriodMax = 30;
-const rateOfReturnMin = 1;
-const rateOfReturnMax = 30;
-const delayMin = 1;
-const delayMax = 120;
+const validate = {
+  MONTHLYINVESTMENTMIN: 500,
+  MONTHLYINVESTMENTMAX: 100000,
+  INVESTMENTPERIODMIN: 1,
+  INVESTMENTPERIODMAX: 30,
+  RATEOFRETURNMIN: 1,
+  RATEOFRETURNMAX: 30,
+  DELAYMIN: 1,
+  DELAYMAX: 120
+}
 
-module.exports = {
-  monthlyInvestmentMin,
-  monthlyInvestmentMax,
-  investmentPeriodMin,
-  investmentPeriodMax,
-  rateOfReturnMin,
-  rateOfReturnMax,
-  delayMin,
-  delayMax,
-};
+module.exports = validate;
