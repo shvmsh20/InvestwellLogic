@@ -49,6 +49,6 @@ const validateAndPassToServices = async (req, res) => {
             result: error,
         });
     }
-};
+}
 
 module.exports = { validateAndPassToServices }
