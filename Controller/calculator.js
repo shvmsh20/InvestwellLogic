@@ -1,6 +1,6 @@
 const service = require("../Services/calculator");
 const validate = require("../Constants/index");
-console.log(validate);
+
 const calculate = async (req, res) => {
     try {
         const monthlyInvestment = parseInt(req.query.monthlyInvestment);
