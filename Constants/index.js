@@ -6,7 +6,10 @@ const validate = {
   RATEOFRETURNMIN: 1,
   RATEOFRETURNMAX: 30,
   DELAYMIN: 1,
-  DELAYMAX: 120
+  DELAYMAX: 120,
 }
 
-module.exports = validate;
+const MONTHSINYEAR = 12
+const HUNDRED = 100
+
+module.exports = {validate, MONTHSINYEAR, HUNDRED}
