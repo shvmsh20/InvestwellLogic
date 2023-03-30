@@ -1,10 +1,10 @@
-const express = require("express");
-const router = express.Router();
+const express = require("express")
+const router = express.Router()
 
-const controller = require("../Controller/calculator");
+const {checkValidations} = require("../Controller/calculator")
 
 //api hit
-router.get("/getResults", controller.calculate)
+router.get("/getSipDelayResults", checkValidations)
 
 
-module.exports = router;
+module.exports = router
