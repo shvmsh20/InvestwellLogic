@@ -3,7 +3,7 @@ const router = express.Router()
 
 const {validateAndPassToServices} = require("../Controller/calculator")
 
-//api hit
+//setting routes
 router.get("/getSipDelayCalculator", validateAndPassToServices)
 
 module.exports = router
