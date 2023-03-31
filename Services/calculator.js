@@ -1,43 +1,29 @@
-const {MONTHSINAYEAR, HUNDRED} = require("../Constants/index")
+const {MONTHS_IN_YEAR, PERCENTAGE} = require('../Constants/index')
 
-//calculate the amount when delay is introduced
-const findAmountWithDelay = (options)=>{
-  const months = (options.investmentPeriod)*MONTHSINAYEAR - options.delay
-  const rate = (options.rateOfReturn)/MONTHSINAYEAR
+//calculate the amount when there is delay or no delay
+const _findAmount = (options, delay)=>{
+  const months = (options.investmentPeriod)*MONTHS_IN_YEAR - (delay ? options.delay : 0);
+  const rate = (options.rateOfReturn)/MONTHS_IN_YEAR 
   let sipCumulation = 0
   let sipGrowthResult = 0
   for(let currentMonth=1; currentMonth<=months; currentMonth++)
   {
-    sipCumulation = options.monthlyInvestment*(Math.pow((1+rate/HUNDRED),currentMonth));
+    sipCumulation = options.monthlyInvestment*(Math.pow((1+rate/PERCENTAGE),currentMonth));
     sipGrowthResult += sipCumulation;
-  }
-  return sipGrowthResult
-}
-
-//calculate the amount when there is no delay  
-const findAmountWithoutDelay = (options)=>{
-  const months = (options.investmentPeriod)*MONTHSINAYEAR
-  const rate = (options.rateOfReturn)/MONTHSINAYEAR
-  let sipCumulation = 0
-  let sipGrowthResult = 0
-  for(let currentMonth=1; currentMonth<=months; currentMonth++)
-  {
-    sipCumulation = options.monthlyInvestment*(Math.pow((1+rate/HUNDRED),currentMonth))
-    sipGrowthResult += sipCumulation
   }
   return sipGrowthResult
 }
 
 const calculate = async (obj)=>{
   try{
-    const startToday = findAmountWithoutDelay(obj).toFixed(0)
-    const delayedStart = findAmountWithDelay(obj).toFixed(0)
+    const startToday = Math.round(_findAmount(obj, false))
+    const delayedStart = Math.round(_findAmount(obj, true))
     const notionalLoss = (startToday - delayedStart)
     return {
         startToday,
         delayedStart,
         notionalLoss
-        }
+    }
     
   }catch(error){
     throw error

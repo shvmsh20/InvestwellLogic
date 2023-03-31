@@ -1,11 +1,11 @@
 const express = require('express')
 const app = express()
-const route = require("./Routes/index.js")
+const {router}= require("./Routes/index.js")
 
 const PORT = process.env.PORT || 5000
 
 //using routes
-app.use("/", route)
+app.use('/', router)
 
 //listening on PORT
 app.listen(PORT, () => {

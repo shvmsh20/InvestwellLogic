@@ -1,9 +1,11 @@
-const express = require("express")
+const express = require('express')
 const router = express.Router()
 
-const {validateAndPassToServices} = require("../Controller/calculator")
+const {getSipDelayCalculatedData} = require('../Controller/calculator')
 
 //setting routes
-router.get("/getSipDelayCalculator", validateAndPassToServices)
+router.get('/getSipDelayCalculator', getSipDelayCalculatedData)
 
-module.exports = router
+module.exports = {
+    router
+}
