@@ -11,35 +11,23 @@ const validateAndPassToServices = async (req, res) => {
         rateOfReturn = parseFloat(rateOfReturn)
         delay = parseInt(delay)
 
-        if (
-            monthlyInvestment < validate.MONTHLYINVESTMENTMIN ||
-            monthlyInvestment > validate.MONTHLYINVESTMENTMAX
-        )
+        if(monthlyInvestment < validate.MONTHLYINVESTMENTMIN || monthlyInvestment > validate.MONTHLYINVESTMENTMAX)
             throw "invalid value of monthly investment"
 
-        if (
-            investmentPeriod < validate.INVESTMENTPERIODMIN ||
-            investmentPeriod > validate.INVESTMENTPERIODMAX
-        )
+        if(investmentPeriod < validate.INVESTMENTPERIODMIN || investmentPeriod > validate.INVESTMENTPERIODMAX)
             throw "invalid value of investment period"
 
 
-        if (
-            rateOfReturn < validate.RATEOFRETURNMIN ||
-            rateOfReturn > validate.RATEOFRETURNMAX
-        )
+        if(rateOfReturn < validate.RATEOFRETURNMIN || rateOfReturn > validate.RATEOFRETURNMAX)
             throw "invalid value of rate of return"
 
 
-        if (
-            delay < validate.DELAYMIN ||
-            delay > validate.DELAYMAX
-        )
+        if(delay < validate.DELAYMIN || delay > validate.DELAYMAX)
             throw "invalid value of delay"
 
         //passing the validated input data for calculation     
         const calculatedResult = await calculate({ monthlyInvestment, investmentPeriod, rateOfReturn, delay })
-        
+
         res.send({ status: 0, message: "Result Successfull", result: calculatedResult })
 
     } catch (error) {

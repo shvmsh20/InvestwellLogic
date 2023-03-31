@@ -9,7 +9,7 @@ const validate = {
   DELAYMAX: 120,
 }
 
-const MONTHSINYEAR = 12
+const MONTHSINAYEAR = 12
 const HUNDRED = 100
 
-module.exports = {validate, MONTHSINYEAR, HUNDRED}
+module.exports = {validate, MONTHSINAYEAR, HUNDRED}

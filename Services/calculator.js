@@ -1,14 +1,14 @@
-const {MONTHSINYEAR, HUNDRED} = require("../Constants/index")
+const {MONTHSINAYEAR, HUNDRED} = require("../Constants/index")
 
 //calculate the amount when delay is introduced
 const findAmountWithDelay = (options)=>{
-  const months = (options.investmentPeriod)*MONTHSINYEAR - options.delay
-  const rate = (options.rateOfReturn)/MONTHSINYEAR
+  const months = (options.investmentPeriod)*MONTHSINAYEAR - options.delay
+  const rate = (options.rateOfReturn)/MONTHSINAYEAR
   let sipCumulation = 0
   let sipGrowthResult = 0
-  for(let i=1; i<=months; i++)
+  for(let currentMonth=1; currentMonth<=months; currentMonth++)
   {
-    sipCumulation = options.monthlyInvestment*(Math.pow((1+rate/HUNDRED),i));
+    sipCumulation = options.monthlyInvestment*(Math.pow((1+rate/HUNDRED),currentMonth));
     sipGrowthResult += sipCumulation;
   }
   return sipGrowthResult
@@ -16,13 +16,13 @@ const findAmountWithDelay = (options)=>{
 
 //calculate the amount when there is no delay  
 const findAmountWithoutDelay = (options)=>{
-  const months = (options.investmentPeriod)*12
-  const rate = (options.rateOfReturn)/12
+  const months = (options.investmentPeriod)*MONTHSINAYEAR
+  const rate = (options.rateOfReturn)/MONTHSINAYEAR
   let sipCumulation = 0
   let sipGrowthResult = 0
-  for(let i=1; i<=months; i++)
+  for(let currentMonth=1; currentMonth<=months; currentMonth++)
   {
-    sipCumulation = options.monthlyInvestment*(Math.pow((1+rate/100),i))
+    sipCumulation = options.monthlyInvestment*(Math.pow((1+rate/HUNDRED),currentMonth))
     sipGrowthResult += sipCumulation
   }
   return sipGrowthResult
