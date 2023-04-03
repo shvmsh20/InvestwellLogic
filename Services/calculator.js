@@ -30,4 +30,6 @@ const calculate = async (obj)=>{
   }
 }
 
-module.exports = {calculate}
+module.exports = {
+  calculate
+}
